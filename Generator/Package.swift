@@ -11,6 +11,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/jpsim/SourceKitten.git", .upToNextMinor(from: "0.21.2")),
         .package(url: "https://github.com/nvzqz/FileKit.git", .branch("develop")),
+        .package(url: "https://github.com/antitypical/Result.git", from: "4.0.0"),
         .package(url: "https://github.com/kylef/Stencil.git", from: "0.9.0"),
         .package(url: "https://github.com/Carthage/Commandant.git", from: "0.12.0")
         ],
@@ -19,6 +20,6 @@ let package = Package(
             "FileKit", "SourceKittenFramework", "Stencil", "Commandant"], exclude: ["Tests"]),
 
         .target(name: "cuckoo_generator", dependencies: [
-            .target(name: "CuckooGeneratorFramework")], exclude: ["Tests"]),
+            "Result", .target(name: "CuckooGeneratorFramework")], exclude: ["Tests"]),
         ]
 )
